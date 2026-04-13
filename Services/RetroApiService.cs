@@ -7,8 +7,8 @@ using RetroEncyclopedia.Models;
 namespace RetroEncyclopedia.Services {
     public class RetroApiService {
         private readonly HttpClient _httpClient;
-        private readonly string _userName = _userName;
-        private readonly string _apiKey = _apiKey;
+        private readonly string _userName;
+        private readonly string _apiKey;
         private readonly string _baseUrl = "https://retroachievements.org/API/";
 
         public RetroApiService() {

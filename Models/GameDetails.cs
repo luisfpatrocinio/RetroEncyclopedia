@@ -17,6 +17,6 @@ namespace RetroEncyclopedia.Models {
         public string Developer { get; set; }
 
         [JsonPropertyName("Achievements")]
-        public List<Achievement> Achievements { get; set; } = new List<Achievement>();
+        public Dictionary<string, Achievement> Achievements { get; set; } = new Dictionary<string, Achievement>();
     }
 }
