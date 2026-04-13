@@ -23,12 +23,150 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            components = new System.ComponentModel.Container();
+            pnlHeader = new Panel();
+            btnSearch = new Button();
+            txtSearch = new TextBox();
+            pnlGameInfo = new Panel();
+            lblDeveloper = new Label();
+            lblTitle = new Label();
+            picBoxArt = new PictureBox();
+            flpAchievements = new FlowLayoutPanel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            pnlHeader.SuspendLayout();
+            pnlGameInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picBoxArt).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // pnlHeader
+            // 
+            pnlHeader.Controls.Add(btnSearch);
+            pnlHeader.Controls.Add(txtSearch);
+            pnlHeader.Dock = DockStyle.Top;
+            pnlHeader.Location = new Point(0, 0);
+            pnlHeader.Name = "pnlHeader";
+            pnlHeader.Size = new Size(984, 80);
+            pnlHeader.TabIndex = 0;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(433, 38);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(75, 23);
+            btnSearch.TabIndex = 1;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(150, 24);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(100, 23);
+            txtSearch.TabIndex = 0;
+            // 
+            // pnlGameInfo
+            // 
+            pnlGameInfo.Controls.Add(tableLayoutPanel1);
+            pnlGameInfo.Dock = DockStyle.Left;
+            pnlGameInfo.Location = new Point(0, 80);
+            pnlGameInfo.Name = "pnlGameInfo";
+            pnlGameInfo.Size = new Size(250, 581);
+            pnlGameInfo.TabIndex = 1;
+            // 
+            // lblDeveloper
+            // 
+            lblDeveloper.AutoSize = true;
+            lblDeveloper.Dock = DockStyle.Fill;
+            lblDeveloper.Location = new Point(3, 566);
+            lblDeveloper.Name = "lblDeveloper";
+            lblDeveloper.Size = new Size(244, 15);
+            lblDeveloper.TabIndex = 2;
+            lblDeveloper.Text = "Developer";
+            lblDeveloper.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Dock = DockStyle.Fill;
+            lblTitle.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.Location = new Point(3, 536);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(244, 30);
+            lblTitle.TabIndex = 1;
+            lblTitle.Text = "Game Title";
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // picBoxArt
+            // 
+            picBoxArt.Dock = DockStyle.Fill;
+            picBoxArt.Location = new Point(10, 10);
+            picBoxArt.Margin = new Padding(10);
+            picBoxArt.Name = "picBoxArt";
+            picBoxArt.Size = new Size(230, 516);
+            picBoxArt.SizeMode = PictureBoxSizeMode.Zoom;
+            picBoxArt.TabIndex = 0;
+            picBoxArt.TabStop = false;
+            // 
+            // flpAchievements
+            // 
+            flpAchievements.AutoScroll = true;
+            flpAchievements.Dock = DockStyle.Fill;
+            flpAchievements.Location = new Point(250, 80);
+            flpAchievements.Name = "flpAchievements";
+            flpAchievements.Padding = new Padding(10);
+            flpAchievements.Size = new Size(734, 581);
+            flpAchievements.TabIndex = 2;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(lblTitle, 0, 1);
+            tableLayoutPanel1.Controls.Add(lblDeveloper, 0, 2);
+            tableLayoutPanel1.Controls.Add(picBoxArt, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.Size = new Size(250, 581);
+            tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Text = "Form1";
+            BackColor = Color.DarkSlateBlue;
+            ClientSize = new Size(984, 661);
+            Controls.Add(flpAchievements);
+            Controls.Add(pnlGameInfo);
+            Controls.Add(pnlHeader);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "RetroEncyclopedia - Game Archive";
+            pnlHeader.ResumeLayout(false);
+            pnlHeader.PerformLayout();
+            pnlGameInfo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picBoxArt).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel pnlHeader;
+        private Panel pnlGameInfo;
+        private FlowLayoutPanel flpAchievements;
+        private Button btnSearch;
+        private TextBox txtSearch;
+        private Label lblDeveloper;
+        private Label lblTitle;
+        private PictureBox picBoxArt;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }
