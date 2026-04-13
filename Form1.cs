@@ -35,7 +35,9 @@ namespace RetroEncyclopedia {
             lblDeveloper.Text = game.Developer;
 
             // Carregar a imagem de capa de forma assíncrona
-            picBoxArt.LoadAsync(game.BoxArtUrl);
+            if (!string.IsNullOrEmpty(game.BoxArtFullUrl)) {
+                picBoxArt.LoadAsync(game.BoxArtFullUrl);
+            }
 
             // Limpar conquistas anteriores
             flpAchievements.Controls.Clear();
@@ -54,7 +56,7 @@ namespace RetroEncyclopedia {
         private Control CreateAchievementCard(Achievement ach) {
             var panel = new Panel {
                 Size = new Size(120, 150),
-                BackColor = new Color.FromArgb(45, 45, 48),
+                BackColor = Color.FromArgb(45, 45, 48),
                 Margin = new Padding(10)
             };
 
