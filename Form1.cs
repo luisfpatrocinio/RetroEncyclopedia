@@ -48,7 +48,12 @@ namespace RetroEncyclopedia {
 
                 var gameList = await _apiService.GetGameListAsync(consoleId);
 
-                var foundGame = gameList.FirstOrDefault(g => g.Title.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
+                var foundGame = gameList.FirstOrDefault(g =>
+                    g.Title.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) &&
+                    !g.Title.Contains("~Hack~", StringComparison.OrdinalIgnoreCase) &&
+                    !g.Title.Contains("~Demo~", StringComparison.OrdinalIgnoreCase) &&
+                    !g.Title.Contains("~Homebrew~", StringComparison.OrdinalIgnoreCase)
+                );
 
                 if (foundGame == null) {
                     MessageBox.Show("Jogo não encontrado nesse console. Verifique o nome ou escolha outro console.", "Não encontrado");
