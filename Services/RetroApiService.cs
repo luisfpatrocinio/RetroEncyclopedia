@@ -44,5 +44,21 @@ namespace RetroEncyclopedia.Services {
                 throw new Exception($"Erro ao buscar os dados da API: {ex.Message}");
             }
         }
+        public async Task<List<GameListItem>> GetGameListAsync(int consoleId) {
+            // O parâmetro 'i' nesta URL representa o ID do Console
+            string url = $"{_baseUrl}API_GetGameList.php?z={_userName}&y={_apiKey}&i={consoleId}";
+
+            try {
+                HttpResponseMessage response = await _httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                string jsonString = await response.Content.ReadAsStringAsync();
+
+                // A API retorna uma lista (Array JSON)
+                return JsonSerializer.Deserialize<List<GameListItem>>(jsonString);
+            } catch (Exception ex) {
+                throw new Exception($"Erro ao buscar catálogo da consola: {ex.Message}");
+            }
+        }
     }
 }

@@ -7,20 +7,56 @@ namespace RetroEncyclopedia {
         private readonly RetroApiService _apiService = new RetroApiService();
         public Form1() {
             InitializeComponent();
+
+            // Bloqueia a ComboBox para o usu[ario apenas poder escolher as opções.
+            cbConsole.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            // Adicionar Consoles
+            cbConsole.Items.Add("Mega Drive");
+            cbConsole.Items.Add("Super Nintendo (SNES)");
+            cbConsole.Items.Add("Nintendo 64");
+            cbConsole.Items.Add("Game Boy Advance");
+            cbConsole.Items.Add("Playstation 1");
+
+            cbConsole.SelectedIndex = 1;
         }
 
         private async void btnSearch_Click(object sender, EventArgs e) {
-            // Validar se o ID foi digitado
-            if (!int.TryParse(txtSearch.Text, out int gameId)) {
-                MessageBox.Show("Por favor, digite um ID de jogo válido.");
+            string searchTerm = txtSearch.Text.Trim();
+
+            if (string.IsNullOrEmpty(searchTerm)) {
+                MessageBox.Show("Por favor, digite o nome de um jogo.");
                 return;
+            }
+
+            // Converter o texto da ComboBox para ID do Console na API
+            // @TODO: Testar cada console para garantir que os IDs estão corretos
+            int consoleId = 3; // SNES como fallback
+            if (cbConsole.SelectedItem != null) {
+                switch (cbConsole.SelectedItem.ToString()) {
+                    case "Mega Drive": consoleId = 2; break;
+                    case "Super Nintendo (SNES)": consoleId = 3; break;
+                    case "Nintendo 64": consoleId = 4; break;
+                    case "Game Boy Advance": consoleId = 5; break;
+                    case "PlayStation 1": consoleId = 12; break;
+                }
             }
 
             try {
                 // Desativar botão para evitar múltiplos cliques.
                 btnSearch.Enabled = false;
 
-                var gameDetails = await _apiService.GetGameDetailsAsync(gameId);
+                var gameList = await _apiService.GetGameListAsync(consoleId);
+
+                var foundGame = gameList.FirstOrDefault(g => g.Title.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
+
+                if (foundGame == null) {
+                    MessageBox.Show("Jogo não encontrado nesse console. Verifique o nome ou escolha outro console.", "Não encontrado");
+                    return;
+                }
+
+                // Obter restante das informações a partir do ID
+                var gameDetails = await _apiService.GetGameDetailsAsync(foundGame.Id);
                 UpdateInterface(gameDetails);
             } catch (Exception ex) {
                 MessageBox.Show($"Ocorreu um erro ao buscar os detalhes do jogo: {ex.Message}");
@@ -78,10 +114,6 @@ namespace RetroEncyclopedia {
             panel.Controls.Add(title);
 
             return panel;
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
-
         }
     }
 }

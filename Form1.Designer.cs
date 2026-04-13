@@ -27,19 +27,21 @@
             btnSearch = new Button();
             txtSearch = new TextBox();
             pnlGameInfo = new Panel();
-            lblDeveloper = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
             lblTitle = new Label();
+            lblDeveloper = new Label();
             picBoxArt = new PictureBox();
             flpAchievements = new FlowLayoutPanel();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            cbConsole = new ComboBox();
             pnlHeader.SuspendLayout();
             pnlGameInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picBoxArt).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picBoxArt).BeginInit();
             SuspendLayout();
             // 
             // pnlHeader
             // 
+            pnlHeader.Controls.Add(cbConsole);
             pnlHeader.Controls.Add(btnSearch);
             pnlHeader.Controls.Add(txtSearch);
             pnlHeader.Dock = DockStyle.Top;
@@ -74,16 +76,22 @@
             pnlGameInfo.Size = new Size(250, 581);
             pnlGameInfo.TabIndex = 1;
             // 
-            // lblDeveloper
+            // tableLayoutPanel1
             // 
-            lblDeveloper.AutoSize = true;
-            lblDeveloper.Dock = DockStyle.Fill;
-            lblDeveloper.Location = new Point(3, 566);
-            lblDeveloper.Name = "lblDeveloper";
-            lblDeveloper.Size = new Size(244, 15);
-            lblDeveloper.TabIndex = 2;
-            lblDeveloper.Text = "Developer";
-            lblDeveloper.TextAlign = ContentAlignment.TopCenter;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(lblTitle, 0, 1);
+            tableLayoutPanel1.Controls.Add(lblDeveloper, 0, 2);
+            tableLayoutPanel1.Controls.Add(picBoxArt, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.Size = new Size(250, 581);
+            tableLayoutPanel1.TabIndex = 0;
             // 
             // lblTitle
             // 
@@ -96,6 +104,17 @@
             lblTitle.TabIndex = 1;
             lblTitle.Text = "Game Title";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblDeveloper
+            // 
+            lblDeveloper.AutoSize = true;
+            lblDeveloper.Dock = DockStyle.Fill;
+            lblDeveloper.Location = new Point(3, 566);
+            lblDeveloper.Name = "lblDeveloper";
+            lblDeveloper.Size = new Size(244, 15);
+            lblDeveloper.TabIndex = 2;
+            lblDeveloper.Text = "Developer";
+            lblDeveloper.TextAlign = ContentAlignment.TopCenter;
             // 
             // picBoxArt
             // 
@@ -118,22 +137,13 @@
             flpAchievements.Size = new Size(734, 581);
             flpAchievements.TabIndex = 2;
             // 
-            // tableLayoutPanel1
+            // cbConsole
             // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(lblTitle, 0, 1);
-            tableLayoutPanel1.Controls.Add(lblDeveloper, 0, 2);
-            tableLayoutPanel1.Controls.Add(picBoxArt, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(250, 581);
-            tableLayoutPanel1.TabIndex = 0;
+            cbConsole.FormattingEnabled = true;
+            cbConsole.Location = new Point(583, 24);
+            cbConsole.Name = "cbConsole";
+            cbConsole.Size = new Size(121, 23);
+            cbConsole.TabIndex = 2;
             // 
             // Form1
             // 
@@ -150,9 +160,9 @@
             pnlHeader.ResumeLayout(false);
             pnlHeader.PerformLayout();
             pnlGameInfo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picBoxArt).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picBoxArt).EndInit();
             ResumeLayout(false);
         }
 
@@ -167,5 +177,6 @@
         private Label lblTitle;
         private PictureBox picBoxArt;
         private TableLayoutPanel tableLayoutPanel1;
+        private ComboBox cbConsole;
     }
 }
