@@ -24,6 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             pnlHeader = new Panel();
+            cbSort = new ComboBox();
+            cbConsole = new ComboBox();
             btnSearch = new Button();
             txtSearch = new TextBox();
             pnlGameInfo = new Panel();
@@ -32,7 +34,7 @@
             lblDeveloper = new Label();
             picBoxArt = new PictureBox();
             flpAchievements = new FlowLayoutPanel();
-            cbConsole = new ComboBox();
+            txtFilterAchievements = new TextBox();
             pnlHeader.SuspendLayout();
             pnlGameInfo.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -41,6 +43,8 @@
             // 
             // pnlHeader
             // 
+            pnlHeader.Controls.Add(txtFilterAchievements);
+            pnlHeader.Controls.Add(cbSort);
             pnlHeader.Controls.Add(cbConsole);
             pnlHeader.Controls.Add(btnSearch);
             pnlHeader.Controls.Add(txtSearch);
@@ -49,6 +53,25 @@
             pnlHeader.Name = "pnlHeader";
             pnlHeader.Size = new Size(984, 80);
             pnlHeader.TabIndex = 0;
+            // 
+            // cbSort
+            // 
+            cbSort.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSort.FormattingEnabled = true;
+            cbSort.Items.AddRange(new object[] { "Padrão da API", "Menos Pontos", "Mais Pontos", "Ordem Alfabética (A-Z)" });
+            cbSort.Location = new Point(755, 34);
+            cbSort.Name = "cbSort";
+            cbSort.Size = new Size(121, 23);
+            cbSort.TabIndex = 3;
+            cbSort.SelectedIndexChanged += cbSort_SelectedIndexChanged;
+            // 
+            // cbConsole
+            // 
+            cbConsole.FormattingEnabled = true;
+            cbConsole.Location = new Point(583, 24);
+            cbConsole.Name = "cbConsole";
+            cbConsole.Size = new Size(121, 23);
+            cbConsole.TabIndex = 2;
             // 
             // btnSearch
             // 
@@ -137,13 +160,14 @@
             flpAchievements.Size = new Size(734, 581);
             flpAchievements.TabIndex = 2;
             // 
-            // cbConsole
+            // txtFilterAchievements
             // 
-            cbConsole.FormattingEnabled = true;
-            cbConsole.Location = new Point(583, 24);
-            cbConsole.Name = "cbConsole";
-            cbConsole.Size = new Size(121, 23);
-            cbConsole.TabIndex = 2;
+            txtFilterAchievements.Location = new Point(280, 12);
+            txtFilterAchievements.Name = "txtFilterAchievements";
+            txtFilterAchievements.PlaceholderText = "Filtrar conquistas...";
+            txtFilterAchievements.Size = new Size(100, 23);
+            txtFilterAchievements.TabIndex = 4;
+            txtFilterAchievements.TextChanged += txtFilterAchievements_TextChanged;
             // 
             // Form1
             // 
@@ -178,5 +202,7 @@
         private PictureBox picBoxArt;
         private TableLayoutPanel tableLayoutPanel1;
         private ComboBox cbConsole;
+        private ComboBox cbSort;
+        private TextBox txtFilterAchievements;
     }
 }

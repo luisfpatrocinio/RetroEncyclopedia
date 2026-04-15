@@ -5,8 +5,14 @@ using System.Drawing.Text;
 namespace RetroEncyclopedia {
     public partial class Form1 : Form {
         private readonly RetroApiService _apiService = new RetroApiService();
+
+        // Variável para guardar as conquistas na memória e não chamar a API toda vez que o usuário quiser ordenar ou filtrar.
+        private List<Achievement> _currentAchievements = new List<Achievement>();
+
         public Form1() {
             InitializeComponent();
+
+            cbSort.SelectedIndex = 0; // Seleciona o "Padrão" logo ao abrir o programa.
 
             // Bloqueia a ComboBox para o usu[ario apenas poder escolher as opções.
             cbConsole.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -52,7 +58,8 @@ namespace RetroEncyclopedia {
                     g.Title.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) &&
                     !g.Title.Contains("~Hack~", StringComparison.OrdinalIgnoreCase) &&
                     !g.Title.Contains("~Demo~", StringComparison.OrdinalIgnoreCase) &&
-                    !g.Title.Contains("~Homebrew~", StringComparison.OrdinalIgnoreCase)
+                    !g.Title.Contains("~Homebrew~", StringComparison.OrdinalIgnoreCase) &&
+                    !g.Title.Contains("~Z~", StringComparison.OrdinalIgnoreCase)
                 );
 
                 if (foundGame == null) {
@@ -80,18 +87,11 @@ namespace RetroEncyclopedia {
                 picBoxArt.LoadAsync(game.BoxArtFullUrl);
             }
 
-            // Limpar conquistas anteriores
-            flpAchievements.Controls.Clear();
+            // Salvamos a lista de conquistas na memória
+            _currentAchievements = game.Achievements.Values.ToList();
 
-            // Percorrer o dicionário de conquistas
-            foreach (var item in game.Achievements) {
-                var achievement = item.Value;
-
-                // Criar um painel para cada conquista
-                //@TODO: Substituir por um UserControl personalizado
-                var card = CreateAchievementCard(achievement);
-                flpAchievements.Controls.Add(card);
-            }
+            // Desenhar na tela com o filtro atual
+            RenderAchievements();
         }
 
         private Control CreateAchievementCard(Achievement ach) {
@@ -110,17 +110,68 @@ namespace RetroEncyclopedia {
             pic.LoadAsync(ach.BadgeImageUrl);
 
             var title = new Label {
-                Text = ach.Title,
+                Text = $"{ach.Title}\n({ach.Points} pts)",
                 ForeColor = Color.White,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Bottom,
-                Height = 40
+                Height = 50
             };
 
             panel.Controls.Add(pic);
             panel.Controls.Add(title);
 
             return panel;
+        }
+
+        private void RenderAchievements() {
+            // Esvazia o painel antes de desenhar
+            flpAchievements.Controls.Clear();
+
+            if (_currentAchievements == null || _currentAchievements.Count == 0) {
+                return;
+            }
+
+            // Começar com lista original
+            var processedList = _currentAchievements.AsEnumerable();
+
+            // Filtrar conquistas a partir do termo de busca
+            string filter = txtFilterAchievements.Text.Trim();
+
+            if (!string.IsNullOrEmpty(filter)) {
+                processedList = processedList.Where(a =>
+                    a.Title.Contains(filter, StringComparison.OrdinalIgnoreCase)
+                );
+            }
+
+            // Aplicar a ordenação com base no ComboBox usando o LINQ
+            if (cbSort.SelectedItem != null) {
+                switch (cbSort.SelectedItem.ToString()) {
+                    case "Menos Pontos":
+                        processedList = processedList.OrderBy(a => a.Points);
+                        break;
+                    case "Mais Pontos":
+                        processedList = processedList.OrderByDescending(a => a.Points);
+                        break;
+                    case "Ordem Alfabética (A-Z)":
+                        processedList = processedList.OrderBy(a => a.Title);
+                        break;
+                }
+            }
+
+            // Desenhamos os painéis
+            foreach (var ach in processedList) {
+                var card = CreateAchievementCard(ach);
+                flpAchievements.Controls.Add(card);
+            }
+        }
+
+        private void cbSort_SelectedIndexChanged(object sender, EventArgs e) {
+            // Renderizar novamente os achievements. Esse método irá aplicar a ordenação selecionada.
+            RenderAchievements();
+        }
+
+        private void txtFilterAchievements_TextChanged(object sender, EventArgs e) {
+
         }
     }
 }

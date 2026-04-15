@@ -1,0 +1,27 @@
+You are an expert programmer writing a commit message following Conventional Commits specification.
+Format: <type>(<scope>): <subject>
+Use types: feat, fix, chore, docs, style, refactor, perf, test.
+
+Keep the subject short. If necessary, add a brief body.
+
+
+
+--- BEGIN GIT DIFF ---
+
+diff --git a/Form1.cs b/Form1.cs
+index 4f3774e..8a696be 100644
+--- a/Form1.cs
++++ b/Form1.cs
+@@ -107,6 +107,8 @@ namespace RetroEncyclopedia {
+                 SizeMode = PictureBoxSizeMode.StretchImage
+             };
+ 
++            pic.LoadAsync(ach.BadgeImageUrl);
++
+             var title = new Label {
+                 Text = ach.Title,
+                 ForeColor = Color.White,
+
+--- END GIT DIFF ---
+
+Generate the commit message:
