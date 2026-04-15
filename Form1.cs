@@ -106,35 +106,6 @@ namespace RetroEncyclopedia {
             RenderAchievements();
         }
 
-        private Control CreateAchievementCard(Achievement ach) {
-            var panel = new Panel {
-                Size = new Size(120, 150),
-                BackColor = Color.FromArgb(45, 45, 48),
-                Margin = new Padding(10)
-            };
-
-            var pic = new PictureBox {
-                Size = new Size(64, 64),
-                Location = new Point(28, 10),
-                SizeMode = PictureBoxSizeMode.StretchImage
-            };
-
-            pic.LoadAsync(ach.BadgeImageUrl);
-
-            var title = new Label {
-                Text = $"{ach.Title}\n({ach.Points} pts)",
-                ForeColor = Color.White,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Dock = DockStyle.Bottom,
-                Height = 50
-            };
-
-            panel.Controls.Add(pic);
-            panel.Controls.Add(title);
-
-            return panel;
-        }
-
         private void RenderAchievements() {
             // Esvazia o painel antes de desenhar
             flpAchievements.Controls.Clear();
@@ -173,7 +144,8 @@ namespace RetroEncyclopedia {
 
             // Desenhamos os painéis
             foreach (var ach in processedList) {
-                var card = CreateAchievementCard(ach);
+                var card = new Controls.AchievementCard();
+                card.SetAchievementData(ach);
                 flpAchievements.Controls.Add(card);
             }
         }

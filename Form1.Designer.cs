@@ -44,12 +44,12 @@
             // 
             // pnlHeader
             // 
-            resources.ApplyResources(pnlHeader, "pnlHeader");
             pnlHeader.Controls.Add(txtFilterAchievements);
             pnlHeader.Controls.Add(cbSort);
             pnlHeader.Controls.Add(cbConsole);
             pnlHeader.Controls.Add(btnSearch);
             pnlHeader.Controls.Add(txtSearch);
+            resources.ApplyResources(pnlHeader, "pnlHeader");
             pnlHeader.Name = "pnlHeader";
             // 
             // txtFilterAchievements
@@ -60,17 +60,17 @@
             // 
             // cbSort
             // 
-            resources.ApplyResources(cbSort, "cbSort");
             cbSort.DropDownStyle = ComboBoxStyle.DropDownList;
             cbSort.FormattingEnabled = true;
             cbSort.Items.AddRange(new object[] { resources.GetString("cbSort.Items"), resources.GetString("cbSort.Items1"), resources.GetString("cbSort.Items2"), resources.GetString("cbSort.Items3") });
+            resources.ApplyResources(cbSort, "cbSort");
             cbSort.Name = "cbSort";
             cbSort.SelectedIndexChanged += cbSort_SelectedIndexChanged;
             // 
             // cbConsole
             // 
-            resources.ApplyResources(cbConsole, "cbConsole");
             cbConsole.FormattingEnabled = true;
+            resources.ApplyResources(cbConsole, "cbConsole");
             cbConsole.Name = "cbConsole";
             // 
             // btnSearch
@@ -87,8 +87,8 @@
             // 
             // pnlGameInfo
             // 
-            resources.ApplyResources(pnlGameInfo, "pnlGameInfo");
             pnlGameInfo.Controls.Add(tableLayoutPanel1);
+            resources.ApplyResources(pnlGameInfo, "pnlGameInfo");
             pnlGameInfo.Name = "pnlGameInfo";
             // 
             // tableLayoutPanel1
