@@ -16,7 +16,6 @@ namespace RetroEncyclopedia {
         public Form1()
         {
             InitializeComponent();
-            ApplyCyberTheme();
 
             // Bloqueia a ComboBox para o usu[ario apenas poder escolher as opções.
             cbConsole.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -197,9 +196,6 @@ namespace RetroEncyclopedia {
 
             // Atualizar o ComboBox de ordenação
             UpdateSortComboBox();
-
-            // Alinhar ao tema
-            ApplyCyberTheme();
         }
 
         private void UpdateSortComboBox()
@@ -221,63 +217,6 @@ namespace RetroEncyclopedia {
 
             // Restaura a seleção se existir, senão volta ao Default
             cbSort.SelectedValue = previousSelection ?? SortOption.Default;
-        }
-
-        private void ApplyCyberTheme()
-        {
-            // 1. Paleta de Cores
-            Color spaceBg = Color.FromArgb(26, 26, 46);      // Fundo principal
-            Color panelBg = Color.FromArgb(22, 33, 62);      // Inputs e Paineis
-            Color neonPink = Color.FromArgb(233, 69, 96);    // Botão de ação
-            Color cyberCyan = Color.FromArgb(0, 229, 255);   // Títulos de destaque
-            Color textLight = Color.FromArgb(230, 230, 230); // Branco suave
-
-            // 2. Fundo Geral e Menu
-            this.BackColor = spaceBg;
-            menuStrip1.BackColor = spaceBg;
-            menuStrip1.ForeColor = textLight;
-            pnlHeader.BackColor = spaceBg;
-            pnlGameInfo.BackColor = spaceBg;
-            flpAchievements.BackColor = spaceBg;
-
-            // Padronizar fontes
-            Font menuFont = new Font("Segoe UI", 10F);
-            languageToolStripMenuItem.Font = menuFont;
-            menuLangEnglish.Font = menuFont;
-            menuLangPortuguese.Font = menuFont;
-
-            // 3. Estilizando os Inputs para não ficarem com o Cinza do Windows
-            txtSearch.BackColor = panelBg;
-            txtSearch.ForeColor = textLight;
-            txtFilterAchievements.BackColor = panelBg;
-            txtFilterAchievements.ForeColor = textLight;
-
-            cbConsole.BackColor = panelBg;
-            cbConsole.ForeColor = textLight;
-            cbSort.BackColor = panelBg;
-            cbSort.ForeColor = textLight;
-
-            // 4. O Botão de Ação (A cereja do bolo)
-            btnSearch.BackColor = neonPink;
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-
-            // 5. Destacando o Título do Jogo
-            lblTitle.ForeColor = cyberCyan;
-            lblDeveloper.ForeColor = textLight;
-
-            // 6. ALINHAMENTO MATEMÁTICO DO HEADER (Corrigindo o Y denteado)
-            // Vamos alinhar todos pelo centro (Y = 30) e dar espaçamento uniforme
-            int yPos = 30;
-
-            txtSearch.Location = new Point(20, yPos);
-            btnSearch.Location = new Point(130, yPos - 2); // Botão costuma ser um pouco mais alto, compensamos com -2
-
-            txtFilterAchievements.Location = new Point(230, yPos);
-
-            // Empurramos os combos de filtro mais para a direita
-            cbConsole.Location = new Point(500, yPos);
-            cbSort.Location = new Point(650, yPos);
         }
     }
 }

@@ -50,27 +50,29 @@
             // 
             // pnlHeader
             // 
+            resources.ApplyResources(pnlHeader, "pnlHeader");
             pnlHeader.Controls.Add(txtFilterAchievements);
             pnlHeader.Controls.Add(cbSort);
             pnlHeader.Controls.Add(cbConsole);
             pnlHeader.Controls.Add(btnSearch);
             pnlHeader.Controls.Add(txtSearch);
             pnlHeader.Controls.Add(menuStrip1);
-            resources.ApplyResources(pnlHeader, "pnlHeader");
             pnlHeader.Name = "pnlHeader";
             // 
             // txtFilterAchievements
             // 
-            txtFilterAchievements.BackColor = Color.FromArgb(64, 64, 64);
-            txtFilterAchievements.BorderStyle = BorderStyle.FixedSingle;
-            txtFilterAchievements.ForeColor = Color.White;
             resources.ApplyResources(txtFilterAchievements, "txtFilterAchievements");
+            txtFilterAchievements.BackColor = Color.FromArgb(22, 33, 62);
+            txtFilterAchievements.BorderStyle = BorderStyle.FixedSingle;
+            txtFilterAchievements.ForeColor = Color.FromArgb(230, 230, 230);
             txtFilterAchievements.Name = "txtFilterAchievements";
             // 
             // cbSort
             // 
-            cbSort.DropDownStyle = ComboBoxStyle.DropDownList;
             resources.ApplyResources(cbSort, "cbSort");
+            cbSort.BackColor = Color.FromArgb(22, 33, 62);
+            cbSort.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSort.ForeColor = Color.FromArgb(230, 230, 230);
             cbSort.FormattingEnabled = true;
             cbSort.Items.AddRange(new object[] { resources.GetString("cbSort.Items"), resources.GetString("cbSort.Items1"), resources.GetString("cbSort.Items2"), resources.GetString("cbSort.Items3") });
             cbSort.Name = "cbSort";
@@ -79,44 +81,47 @@
             // cbConsole
             // 
             resources.ApplyResources(cbConsole, "cbConsole");
+            cbConsole.BackColor = Color.FromArgb(22, 33, 62);
+            cbConsole.ForeColor = Color.FromArgb(230, 230, 230);
             cbConsole.FormattingEnabled = true;
             cbConsole.Name = "cbConsole";
             // 
             // btnSearch
             // 
+            resources.ApplyResources(btnSearch, "btnSearch");
+            btnSearch.BackColor = Color.FromArgb(233, 69, 96);
             btnSearch.Cursor = Cursors.Hand;
             btnSearch.FlatAppearance.BorderColor = Color.MediumSlateBlue;
             btnSearch.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(btnSearch, "btnSearch");
-            btnSearch.ForeColor = Color.White;
+            btnSearch.ForeColor = Color.FromArgb(230, 230, 230);
             btnSearch.Name = "btnSearch";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += btnSearch_Click;
             // 
             // txtSearch
             // 
-            txtSearch.BackColor = Color.FromArgb(64, 64, 64);
-            txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.ForeColor = Color.White;
             resources.ApplyResources(txtSearch, "txtSearch");
+            txtSearch.BackColor = Color.FromArgb(22, 33, 62);
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.ForeColor = Color.FromArgb(230, 230, 230);
             txtSearch.Name = "txtSearch";
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem });
             resources.ApplyResources(menuStrip1, "menuStrip1");
+            menuStrip1.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem });
             menuStrip1.Name = "menuStrip1";
             // 
             // languageToolStripMenuItem
             // 
+            resources.ApplyResources(languageToolStripMenuItem, "languageToolStripMenuItem");
             languageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { menuLangEnglish, menuLangPortuguese });
             languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            resources.ApplyResources(languageToolStripMenuItem, "languageToolStripMenuItem");
             // 
             // menuLangEnglish
             // 
-            menuLangEnglish.Name = "menuLangEnglish";
             resources.ApplyResources(menuLangEnglish, "menuLangEnglish");
+            menuLangEnglish.Name = "menuLangEnglish";
             menuLangEnglish.Click += menuLangEnglish_Click;
             // 
             // menuLangPortuguese
@@ -127,8 +132,8 @@
             // 
             // pnlGameInfo
             // 
-            pnlGameInfo.Controls.Add(tableLayoutPanel1);
             resources.ApplyResources(pnlGameInfo, "pnlGameInfo");
+            pnlGameInfo.Controls.Add(tableLayoutPanel1);
             pnlGameInfo.Name = "pnlGameInfo";
             // 
             // tableLayoutPanel1
@@ -142,11 +147,13 @@
             // lblTitle
             // 
             resources.ApplyResources(lblTitle, "lblTitle");
+            lblTitle.ForeColor = Color.FromArgb(0, 229, 255);
             lblTitle.Name = "lblTitle";
             // 
             // lblDeveloper
             // 
             resources.ApplyResources(lblDeveloper, "lblDeveloper");
+            lblDeveloper.ForeColor = Color.FromArgb(230, 230, 230);
             lblDeveloper.Name = "lblDeveloper";
             // 
             // picBoxArt
@@ -164,7 +171,7 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkSlateBlue;
+            BackColor = Color.FromArgb(26, 26, 46);
             Controls.Add(flpAchievements);
             Controls.Add(pnlGameInfo);
             Controls.Add(pnlHeader);
