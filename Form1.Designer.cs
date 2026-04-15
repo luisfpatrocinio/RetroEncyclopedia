@@ -31,21 +31,21 @@
             cbConsole = new ComboBox();
             btnSearch = new Button();
             txtSearch = new TextBox();
+            menuStrip1 = new MenuStrip();
+            languageToolStripMenuItem = new ToolStripMenuItem();
+            menuLangEnglish = new ToolStripMenuItem();
+            menuLangPortuguese = new ToolStripMenuItem();
             pnlGameInfo = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             lblTitle = new Label();
             lblDeveloper = new Label();
             picBoxArt = new PictureBox();
             flpAchievements = new FlowLayoutPanel();
-            menuStrip1 = new MenuStrip();
-            languageToolStripMenuItem = new ToolStripMenuItem();
-            menuLangEnglish = new ToolStripMenuItem();
-            menuLangPortuguese = new ToolStripMenuItem();
             pnlHeader.SuspendLayout();
+            menuStrip1.SuspendLayout();
             pnlGameInfo.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxArt).BeginInit();
-            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // pnlHeader
@@ -61,35 +61,69 @@
             // 
             // txtFilterAchievements
             // 
+            txtFilterAchievements.BackColor = Color.FromArgb(64, 64, 64);
+            txtFilterAchievements.BorderStyle = BorderStyle.FixedSingle;
+            txtFilterAchievements.ForeColor = Color.White;
             resources.ApplyResources(txtFilterAchievements, "txtFilterAchievements");
             txtFilterAchievements.Name = "txtFilterAchievements";
             // 
             // cbSort
             // 
             cbSort.DropDownStyle = ComboBoxStyle.DropDownList;
+            resources.ApplyResources(cbSort, "cbSort");
             cbSort.FormattingEnabled = true;
             cbSort.Items.AddRange(new object[] { resources.GetString("cbSort.Items"), resources.GetString("cbSort.Items1"), resources.GetString("cbSort.Items2"), resources.GetString("cbSort.Items3") });
-            resources.ApplyResources(cbSort, "cbSort");
             cbSort.Name = "cbSort";
             cbSort.SelectedIndexChanged += cbSort_SelectedIndexChanged;
             // 
             // cbConsole
             // 
-            cbConsole.FormattingEnabled = true;
             resources.ApplyResources(cbConsole, "cbConsole");
+            cbConsole.FormattingEnabled = true;
             cbConsole.Name = "cbConsole";
             // 
             // btnSearch
             // 
+            btnSearch.Cursor = Cursors.Hand;
+            btnSearch.FlatAppearance.BorderColor = Color.MediumSlateBlue;
+            btnSearch.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(btnSearch, "btnSearch");
+            btnSearch.ForeColor = Color.White;
             btnSearch.Name = "btnSearch";
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
             // 
             // txtSearch
             // 
+            txtSearch.BackColor = Color.FromArgb(64, 64, 64);
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.ForeColor = Color.White;
             resources.ApplyResources(txtSearch, "txtSearch");
             txtSearch.Name = "txtSearch";
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem });
+            resources.ApplyResources(menuStrip1, "menuStrip1");
+            menuStrip1.Name = "menuStrip1";
+            // 
+            // languageToolStripMenuItem
+            // 
+            languageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { menuLangEnglish, menuLangPortuguese });
+            languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            resources.ApplyResources(languageToolStripMenuItem, "languageToolStripMenuItem");
+            // 
+            // menuLangEnglish
+            // 
+            menuLangEnglish.Name = "menuLangEnglish";
+            resources.ApplyResources(menuLangEnglish, "menuLangEnglish");
+            menuLangEnglish.Click += menuLangEnglish_Click;
+            // 
+            // menuLangPortuguese
+            // 
+            resources.ApplyResources(menuLangPortuguese, "menuLangPortuguese");
+            menuLangPortuguese.Name = "menuLangPortuguese";
+            menuLangPortuguese.Click += menuLangPortuguese_Click;
             // 
             // pnlGameInfo
             // 
@@ -126,30 +160,6 @@
             resources.ApplyResources(flpAchievements, "flpAchievements");
             flpAchievements.Name = "flpAchievements";
             // 
-            // menuStrip1
-            // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem });
-            resources.ApplyResources(menuStrip1, "menuStrip1");
-            menuStrip1.Name = "menuStrip1";
-            // 
-            // languageToolStripMenuItem
-            // 
-            languageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { menuLangEnglish, menuLangPortuguese });
-            languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            resources.ApplyResources(languageToolStripMenuItem, "languageToolStripMenuItem");
-            // 
-            // menuLangEnglish
-            // 
-            menuLangEnglish.Name = "menuLangEnglish";
-            resources.ApplyResources(menuLangEnglish, "menuLangEnglish");
-            menuLangEnglish.Click += menuLangEnglish_Click;
-            // 
-            // menuLangPortuguese
-            // 
-            menuLangPortuguese.Name = "menuLangPortuguese";
-            resources.ApplyResources(menuLangPortuguese, "menuLangPortuguese");
-            menuLangPortuguese.Click += menuLangPortuguese_Click;
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -162,12 +172,12 @@
             Name = "Form1";
             pnlHeader.ResumeLayout(false);
             pnlHeader.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             pnlGameInfo.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxArt).EndInit();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
