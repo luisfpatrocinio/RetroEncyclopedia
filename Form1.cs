@@ -12,19 +12,37 @@ namespace RetroEncyclopedia {
         public Form1() {
             InitializeComponent();
 
-            cbSort.SelectedIndex = 0; // Seleciona o "Padrão" logo ao abrir o programa.
-
             // Bloqueia a ComboBox para o usu[ario apenas poder escolher as opções.
             cbConsole.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSort.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            // Adicionar Consoles
-            cbConsole.Items.Add("Mega Drive");
-            cbConsole.Items.Add("Super Nintendo (SNES)");
-            cbConsole.Items.Add("Nintendo 64");
-            cbConsole.Items.Add("Game Boy Advance");
-            cbConsole.Items.Add("Playstation 1");
+            // Criar um dicionário com o ID da API (Key) e o Nome (Value)
+            var consoles = new Dictionary<int, string> {
+                { 2, "Mega Drive" },
+                { 3, "Super Nintendo (SNES)" },
+                { 4, "Nintendo 64" },
+                { 5, "Game Boy Advance" },
+                { 12, "PlayStation 1" }
+            };
 
-            cbConsole.SelectedIndex = 1;
+            // Vincular o dicionário à ComboBox
+            cbConsole.DataSource = new BindingSource(consoles, null);
+            cbConsole.DisplayMember = "Value";  // O que é mostrado para o usuário
+            cbConsole.ValueMember = "Key";      // O valor real por trás dos pano
+            cbConsole.SelectedValue = 3;
+
+            // Dicionário para a ordenação (A Chave é o Enum, o Valor é o texto da tela)
+            var sortOptions = new Dictionary<SortOption, string> {
+                { SortOption.Default, "Padrão da API" },
+                { SortOption.LowestPoints, "Menos Pontos" },
+                { SortOption.HighestPoints, "Mais Pontos" },
+                { SortOption.Alphabetical, "Ordem Alfabética (A-Z)" }
+            };
+
+            cbSort.DataSource = new BindingSource(sortOptions, null);
+            cbSort.DisplayMember = "Value";
+            cbSort.ValueMember = "Key";
+            cbSort.SelectedValue = SortOption.Default;
         }
 
         private async void btnSearch_Click(object sender, EventArgs e) {
@@ -35,17 +53,11 @@ namespace RetroEncyclopedia {
                 return;
             }
 
-            // Converter o texto da ComboBox para ID do Console na API
-            // @TODO: Testar cada console para garantir que os IDs estão corretos
-            int consoleId = 3; // SNES como fallback
-            if (cbConsole.SelectedItem != null) {
-                switch (cbConsole.SelectedItem.ToString()) {
-                    case "Mega Drive": consoleId = 2; break;
-                    case "Super Nintendo (SNES)": consoleId = 3; break;
-                    case "Nintendo 64": consoleId = 4; break;
-                    case "Game Boy Advance": consoleId = 5; break;
-                    case "PlayStation 1": consoleId = 12; break;
-                }
+            // Tenta pegar o valor e já converte para 'int' com segurança. 
+            // PS: Aqui a variável consoleId é definida.
+            if (cbConsole.SelectedValue is not int consoleId) {
+                MessageBox.Show("Erro interno: Console inválido selecionado.");
+                return;
             }
 
             try {
@@ -143,18 +155,19 @@ namespace RetroEncyclopedia {
                 );
             }
 
-            // Aplicar a ordenação com base no ComboBox usando o LINQ
-            if (cbSort.SelectedItem != null) {
-                switch (cbSort.SelectedItem.ToString()) {
-                    case "Menos Pontos":
+            // Se o valor selecionado for validamente o nosso Enum, aplicamos o filtro
+            if (cbSort.SelectedValue is SortOption selectedSort) {
+                switch (selectedSort) {
+                    case SortOption.LowestPoints:
                         processedList = processedList.OrderBy(a => a.Points);
                         break;
-                    case "Mais Pontos":
+                    case SortOption.HighestPoints:
                         processedList = processedList.OrderByDescending(a => a.Points);
                         break;
-                    case "Ordem Alfabética (A-Z)":
+                    case SortOption.Alphabetical:
                         processedList = processedList.OrderBy(a => a.Title);
                         break;
+                        // O Default não precisa fazer nada, pois a lista já está na ordem da API
                 }
             }
 
