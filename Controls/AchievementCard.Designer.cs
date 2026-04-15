@@ -40,6 +40,7 @@
             // 
             // lblTitle
             // 
+            lblTitle.AutoEllipsis = true;
             lblTitle.AutoSize = true;
             lblTitle.Dock = DockStyle.Bottom;
             lblTitle.ForeColor = Color.White;
