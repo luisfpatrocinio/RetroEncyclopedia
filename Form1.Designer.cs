@@ -22,7 +22,8 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             pnlHeader = new Panel();
             txtFilterAchievements = new TextBox();
@@ -36,10 +37,15 @@
             lblDeveloper = new Label();
             picBoxArt = new PictureBox();
             flpAchievements = new FlowLayoutPanel();
+            menuStrip1 = new MenuStrip();
+            languageToolStripMenuItem = new ToolStripMenuItem();
+            menuLangEnglish = new ToolStripMenuItem();
+            menuLangPortuguese = new ToolStripMenuItem();
             pnlHeader.SuspendLayout();
             pnlGameInfo.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxArt).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // pnlHeader
@@ -49,6 +55,7 @@
             pnlHeader.Controls.Add(cbConsole);
             pnlHeader.Controls.Add(btnSearch);
             pnlHeader.Controls.Add(txtSearch);
+            pnlHeader.Controls.Add(menuStrip1);
             resources.ApplyResources(pnlHeader, "pnlHeader");
             pnlHeader.Name = "pnlHeader";
             // 
@@ -56,7 +63,6 @@
             // 
             resources.ApplyResources(txtFilterAchievements, "txtFilterAchievements");
             txtFilterAchievements.Name = "txtFilterAchievements";
-            txtFilterAchievements.TextChanged += txtFilterAchievements_TextChanged;
             // 
             // cbSort
             // 
@@ -120,6 +126,30 @@
             resources.ApplyResources(flpAchievements, "flpAchievements");
             flpAchievements.Name = "flpAchievements";
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { languageToolStripMenuItem });
+            resources.ApplyResources(menuStrip1, "menuStrip1");
+            menuStrip1.Name = "menuStrip1";
+            // 
+            // languageToolStripMenuItem
+            // 
+            languageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { menuLangEnglish, menuLangPortuguese });
+            languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            resources.ApplyResources(languageToolStripMenuItem, "languageToolStripMenuItem");
+            // 
+            // menuLangEnglish
+            // 
+            menuLangEnglish.Name = "menuLangEnglish";
+            resources.ApplyResources(menuLangEnglish, "menuLangEnglish");
+            menuLangEnglish.Click += menuLangEnglish_Click;
+            // 
+            // menuLangPortuguese
+            // 
+            menuLangPortuguese.Name = "menuLangPortuguese";
+            resources.ApplyResources(menuLangPortuguese, "menuLangPortuguese");
+            menuLangPortuguese.Click += menuLangPortuguese_Click;
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -128,6 +158,7 @@
             Controls.Add(flpAchievements);
             Controls.Add(pnlGameInfo);
             Controls.Add(pnlHeader);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             pnlHeader.ResumeLayout(false);
             pnlHeader.PerformLayout();
@@ -135,6 +166,8 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picBoxArt).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -152,5 +185,9 @@
         private ComboBox cbConsole;
         private ComboBox cbSort;
         private TextBox txtFilterAchievements;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem languageToolStripMenuItem;
+        private ToolStripMenuItem menuLangEnglish;
+        private ToolStripMenuItem menuLangPortuguese;
     }
 }
