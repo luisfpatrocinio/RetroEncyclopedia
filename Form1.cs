@@ -107,6 +107,8 @@ namespace RetroEncyclopedia {
                 SizeMode = PictureBoxSizeMode.StretchImage
             };
 
+            pic.LoadAsync(ach.BadgeImageUrl);
+
             var title = new Label {
                 Text = ach.Title,
                 ForeColor = Color.White,
