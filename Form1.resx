@@ -118,8 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 8</value>
+  </data>
+  <data name="txtSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 16</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.Name" xml:space="preserve">
+    <value>txtSearch</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;txtSearch.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 35</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 32</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>pnlHeader</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="txtFilterAchievements.Location" type="System.Drawing.Point, System.Drawing">
-    <value>304, 39</value>
+    <value>327, 41</value>
   </data>
   <data name="txtFilterAchievements.PlaceholderText" xml:space="preserve">
     <value>Filter achievements...</value>
@@ -127,7 +170,6 @@
   <data name="txtFilterAchievements.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtFilterAchievements.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -141,7 +183,7 @@
     <value>pnlHeader</value>
   </data>
   <data name="&gt;&gt;txtFilterAchievements.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cbSort.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
@@ -160,7 +202,7 @@
     <value>Ordem Alfabética (A-Z)</value>
   </data>
   <data name="cbSort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>755, 34</value>
+    <value>756, 40</value>
   </data>
   <data name="cbSort.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 23</value>
@@ -178,13 +220,13 @@
     <value>pnlHeader</value>
   </data>
   <data name="&gt;&gt;cbSort.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="cbConsole.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="cbConsole.Location" type="System.Drawing.Point, System.Drawing">
-    <value>583, 24</value>
+    <value>597, 40</value>
   </data>
   <data name="cbConsole.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 23</value>
@@ -202,16 +244,16 @@
     <value>pnlHeader</value>
   </data>
   <data name="&gt;&gt;cbConsole.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btnSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="btnSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>433, 38</value>
+    <value>433, 35</value>
   </data>
   <data name="btnSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>100, 32</value>
   </data>
   <data name="btnSearch.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -229,34 +271,13 @@
     <value>pnlHeader</value>
   </data>
   <data name="&gt;&gt;btnSearch.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="txtSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 39</value>
-  </data>
-  <data name="txtSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
-  </data>
-  <data name="txtSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.Name" xml:space="preserve">
-    <value>txtSearch</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.Parent" xml:space="preserve">
-    <value>pnlHeader</value>
-  </data>
-  <data name="&gt;&gt;txtSearch.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="menuLangEnglish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>173, 24</value>
   </data>
   <data name="menuLangEnglish.Text" xml:space="preserve">
     <value>English</value>
@@ -265,7 +286,7 @@
     <value>Segoe UI, 11.25pt</value>
   </data>
   <data name="menuLangPortuguese.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>173, 24</value>
   </data>
   <data name="menuLangPortuguese.Text" xml:space="preserve">
     <value>Português (BR)</value>

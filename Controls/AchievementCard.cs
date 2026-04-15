@@ -5,9 +5,9 @@ using RetroEncyclopedia.Models;
 namespace RetroEncyclopedia.Controls {
     public partial class AchievementCard : UserControl {
 
-        // Cores para o hover
-        private readonly Color _normalColor = Color.FromArgb(45, 45, 48);
-        private readonly Color _hoverColor = Color.FromArgb(70, 70, 75);
+        // Cores para o hover integradas ao novo tema
+        private readonly Color _normalColor = Color.FromArgb(22, 33, 62); 
+        private readonly Color _hoverColor = Color.FromArgb(15, 52, 96);  
 
         public AchievementCard() {
             InitializeComponent();

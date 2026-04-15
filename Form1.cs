@@ -17,6 +17,10 @@ namespace RetroEncyclopedia {
         {
             InitializeComponent();
 
+            menuStrip1.Renderer = new ToolStripProfessionalRenderer(new CyberColorTable());
+            menuStrip1.BackColor = Color.FromArgb(26, 26, 46);
+            menuStrip1.ForeColor = Color.White;
+
             // Bloqueia a ComboBox para o usu[ario apenas poder escolher as opções.
             cbConsole.DropDownStyle = ComboBoxStyle.DropDownList;
             cbSort.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -218,5 +222,19 @@ namespace RetroEncyclopedia {
             // Restaura a seleção se existir, senão volta ao Default
             cbSort.SelectedValue = previousSelection ?? SortOption.Default;
         }
+
+    }
+
+    // Uma classe para forçar o MenuStrip a respeitar o nosso tema
+    public class CyberColorTable : ProfessionalColorTable
+    {
+        // Cor do fundo do menu
+        public override Color MenuStripGradientBegin => Color.FromArgb(26, 26, 46);
+        public override Color MenuStripGradientEnd => Color.FromArgb(26, 26, 46);
+        public override Color MenuItemSelected => Color.FromArgb(15, 52, 96); // Cor ao passar o mouse
+        public override Color MenuItemBorder => Color.FromArgb(26, 26, 46); // Sem borda feia
+        public override Color ToolStripDropDownBackground => Color.FromArgb(22, 33, 62); // Fundo do submenu
+        public override Color ImageMarginGradientBegin => Color.FromArgb(22, 33, 62); // Remove a barra lateral do submenu
+        public override Color ImageMarginGradientEnd => Color.FromArgb(22, 33, 62);
     }
 }

@@ -26,11 +26,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             pnlHeader = new Panel();
+            panel1 = new Panel();
+            txtSearch = new TextBox();
             txtFilterAchievements = new TextBox();
             cbSort = new ComboBox();
             cbConsole = new ComboBox();
             btnSearch = new Button();
-            txtSearch = new TextBox();
             menuStrip1 = new MenuStrip();
             languageToolStripMenuItem = new ToolStripMenuItem();
             menuLangEnglish = new ToolStripMenuItem();
@@ -42,6 +43,7 @@
             picBoxArt = new PictureBox();
             flpAchievements = new FlowLayoutPanel();
             pnlHeader.SuspendLayout();
+            panel1.SuspendLayout();
             menuStrip1.SuspendLayout();
             pnlGameInfo.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -50,27 +52,44 @@
             // 
             // pnlHeader
             // 
+            pnlHeader.Controls.Add(panel1);
             pnlHeader.Controls.Add(txtFilterAchievements);
             pnlHeader.Controls.Add(cbSort);
             pnlHeader.Controls.Add(cbConsole);
             pnlHeader.Controls.Add(btnSearch);
-            pnlHeader.Controls.Add(txtSearch);
             pnlHeader.Controls.Add(menuStrip1);
             resources.ApplyResources(pnlHeader, "pnlHeader");
             pnlHeader.Name = "pnlHeader";
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(26, 33, 62);
+            panel1.Controls.Add(txtSearch);
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Name = "panel1";
+            // 
+            // txtSearch
+            // 
+            txtSearch.BackColor = Color.FromArgb(22, 33, 62);
+            txtSearch.BorderStyle = BorderStyle.None;
+            txtSearch.ForeColor = Color.FromArgb(230, 230, 230);
+            resources.ApplyResources(txtSearch, "txtSearch");
+            txtSearch.Name = "txtSearch";
+            // 
             // txtFilterAchievements
             // 
-            txtFilterAchievements.BackColor = Color.FromArgb(64, 64, 64);
+            txtFilterAchievements.BackColor = Color.FromArgb(22, 33, 62);
             txtFilterAchievements.BorderStyle = BorderStyle.FixedSingle;
-            txtFilterAchievements.ForeColor = Color.White;
+            txtFilterAchievements.ForeColor = Color.FromArgb(230, 230, 230);
             resources.ApplyResources(txtFilterAchievements, "txtFilterAchievements");
             txtFilterAchievements.Name = "txtFilterAchievements";
             // 
             // cbSort
             // 
+            cbSort.BackColor = Color.FromArgb(22, 33, 62);
             cbSort.DropDownStyle = ComboBoxStyle.DropDownList;
             resources.ApplyResources(cbSort, "cbSort");
+            cbSort.ForeColor = Color.FromArgb(230, 230, 230);
             cbSort.FormattingEnabled = true;
             cbSort.Items.AddRange(new object[] { resources.GetString("cbSort.Items"), resources.GetString("cbSort.Items1"), resources.GetString("cbSort.Items2"), resources.GetString("cbSort.Items3") });
             cbSort.Name = "cbSort";
@@ -78,28 +97,23 @@
             // 
             // cbConsole
             // 
+            cbConsole.BackColor = Color.FromArgb(22, 33, 62);
             resources.ApplyResources(cbConsole, "cbConsole");
+            cbConsole.ForeColor = Color.FromArgb(230, 230, 230);
             cbConsole.FormattingEnabled = true;
             cbConsole.Name = "cbConsole";
             // 
             // btnSearch
             // 
+            btnSearch.BackColor = Color.FromArgb(233, 69, 96);
             btnSearch.Cursor = Cursors.Hand;
             btnSearch.FlatAppearance.BorderColor = Color.MediumSlateBlue;
             btnSearch.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(btnSearch, "btnSearch");
-            btnSearch.ForeColor = Color.White;
+            btnSearch.ForeColor = Color.FromArgb(230, 230, 230);
             btnSearch.Name = "btnSearch";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += btnSearch_Click;
-            // 
-            // txtSearch
-            // 
-            txtSearch.BackColor = Color.FromArgb(64, 64, 64);
-            txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.ForeColor = Color.White;
-            resources.ApplyResources(txtSearch, "txtSearch");
-            txtSearch.Name = "txtSearch";
             // 
             // menuStrip1
             // 
@@ -142,11 +156,13 @@
             // lblTitle
             // 
             resources.ApplyResources(lblTitle, "lblTitle");
+            lblTitle.ForeColor = Color.FromArgb(0, 229, 255);
             lblTitle.Name = "lblTitle";
             // 
             // lblDeveloper
             // 
             resources.ApplyResources(lblDeveloper, "lblDeveloper");
+            lblDeveloper.ForeColor = Color.FromArgb(230, 230, 230);
             lblDeveloper.Name = "lblDeveloper";
             // 
             // picBoxArt
@@ -164,7 +180,7 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkSlateBlue;
+            BackColor = Color.FromArgb(26, 26, 46);
             Controls.Add(flpAchievements);
             Controls.Add(pnlGameInfo);
             Controls.Add(pnlHeader);
@@ -172,6 +188,8 @@
             Name = "Form1";
             pnlHeader.ResumeLayout(false);
             pnlHeader.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             pnlGameInfo.ResumeLayout(false);
@@ -199,5 +217,6 @@
         private ToolStripMenuItem languageToolStripMenuItem;
         private ToolStripMenuItem menuLangEnglish;
         private ToolStripMenuItem menuLangPortuguese;
+        private Panel panel1;
     }
 }
