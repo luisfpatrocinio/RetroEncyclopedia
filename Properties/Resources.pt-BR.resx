@@ -118,15 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SortAlphabetical" xml:space="preserve">
-    <value>Alphabetical Order</value>
+    <value>Ordem Alfabética (A-Z)</value>
   </data>
   <data name="SortDefault" xml:space="preserve">
-    <value>API Default</value>
+    <value>Padrão da API</value>
   </data>
   <data name="SortHighestPoints" xml:space="preserve">
-    <value>Highest Points</value>
+    <value>Mais Pontos</value>
   </data>
   <data name="SortLowestPoints" xml:space="preserve">
-    <value>Lowest Points</value>
+    <value>Menos Pontos</value>
   </data>
 </root>

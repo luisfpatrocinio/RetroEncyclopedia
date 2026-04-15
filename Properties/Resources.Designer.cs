@@ -59,5 +59,41 @@ namespace RetroEncyclopedia.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Alphabetical Order.
+        /// </summary>
+        internal static string SortAlphabetical {
+            get {
+                return ResourceManager.GetString("SortAlphabetical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a API Default.
+        /// </summary>
+        internal static string SortDefault {
+            get {
+                return ResourceManager.GetString("SortDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Highest Points.
+        /// </summary>
+        internal static string SortHighestPoints {
+            get {
+                return ResourceManager.GetString("SortHighestPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Lowest Points.
+        /// </summary>
+        internal static string SortLowestPoints {
+            get {
+                return ResourceManager.GetString("SortLowestPoints", resourceCulture);
+            }
+        }
     }
 }

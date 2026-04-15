@@ -33,10 +33,10 @@ namespace RetroEncyclopedia {
 
             // Dicionário para a ordenação (A Chave é o Enum, o Valor é o texto da tela)
             var sortOptions = new Dictionary<SortOption, string> {
-                { SortOption.Default, "Padrão da API" },
-                { SortOption.LowestPoints, "Menos Pontos" },
-                { SortOption.HighestPoints, "Mais Pontos" },
-                { SortOption.Alphabetical, "Ordem Alfabética (A-Z)" }
+                { SortOption.Default, Properties.Resources.SortDefault },
+                { SortOption.LowestPoints, Properties.Resources.SortLowestPoints },
+                { SortOption.HighestPoints, Properties.Resources.SortHighestPoints },
+                { SortOption.Alphabetical, Properties.Resources.SortAlphabetical }
             };
 
             cbSort.DataSource = new BindingSource(sortOptions, null);
